@@ -3,8 +3,8 @@ const legacyArtistsKey = "music-link-artists";
 const supabaseConfig = window.MUSIC_LINK_SUPABASE || {};
 const isSupabaseConfigured = Boolean(
   window.supabase &&
-  supabaseConfig.url &&
-  supabaseConfig.anonKey &&
+  url: "https://escolarprojectmusiclink.netlify.app/",
+  anonKey: "sb_publishable_pwUyG5OqkRcEBwmP-GkNJQ_6B_NG-Zm"
   supabaseConfig.url.startsWith("https://") &&
   supabaseConfig.anonKey.length > 20
 );
