@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Music Link</title>
 
-  <!-- Conexão com o CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,566 +14,716 @@
 
   <div class="page-shell" id="pageShell">
 
-    <header class="topbar">
+```
+<!-- =========================
+     NAVBAR
+========================== -->
+<header class="topbar">
 
-      <a class="brand" href="#" aria-label="Music Link">
-        <span class="brand-mark">ML</span>
-        <span>Music Link</span>
+  <a class="brand" href="#inicio" aria-label="Music Link">
+    <img
+      class="brand-mark"
+      src="assets/music-link-logo.png"
+      alt="Music Link"
+    >
+
+    <span>
+      music <b>link</b>
+    </span>
+  </a>
+
+  <nav class="nav" aria-label="Navegação principal">
+
+    <a href="#descobrir">
+      Descobrir
+    </a>
+
+    <a href="#artista">
+      Artistas
+    </a>
+
+    <a href="#acesso">
+      Acesso
+    </a>
+
+    <!-- Mantido para o app.js -->
+    <button
+      class="button small ghost"
+      type="button"
+      id="openGalleryButton">
+      Ver artistas
+    </button>
+
+  </nav>
+
+</header>
+
+
+<main class="site-main">
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+  <section
+    id="inicio"
+    class="hero-panel">
+
+    <div>
+
+      <p class="eyebrow">
+        Música independente · grátis
+      </p>
+
+      <h1>
+        Seu som merece ser encontrado.
+      </h1>
+
+      <p>
+        O Music Link dá espaço para artistas pequenos divulgarem
+        suas músicas e para ouvintes encontrarem sons novos.
+      </p>
+
+      <a
+        class="button primary"
+        href="#descobrir">
+        Explorar artistas
       </a>
 
-      <nav class="nav" aria-label="Navegação principal">
-        <a href="#login">Login</a>
-        <a href="#cadastro">Cadastro</a>
-
-        <button
-          class="button small ghost"
-          type="button"
-          id="openGalleryButton">
-          Ver artistas
-        </button>
-      </nav>
-
-    </header>
+    </div>
 
 
-    <main class="main-layout">
+    <img
+      class="hero-logo"
+      src="assets/music-link-logo.png"
+      alt="Logo Music Link">
 
-      <!-- HERO -->
-      <section class="hero-panel">
+  </section>
 
-        <p class="eyebrow">
-          Plataforma musical
-        </p>
 
-        <h1>
-          Music Link
-        </h1>
+  <!-- =========================
+       DESCOBRIR ARTISTAS
+  ========================== -->
+  <section
+    id="descobrir"
+    class="public-section">
+
+    <p class="eyebrow">
+      Descobrir
+    </p>
+
+    <h2>
+      Encontre artistas pelo seu gosto
+    </h2>
+
+    <p class="muted">
+      A busca considera o nome, gênero e música.
+      A seleção alterna os resultados para dar visibilidade equilibrada.
+    </p>
+
+
+    <div class="search-row">
+
+      <!--
+        Mantido com os IDs do sistema original.
+        O app.js pode usar esses elementos futuramente.
+      -->
+      <input
+        id="search"
+        type="search"
+        placeholder="Artista, música ou gênero"
+        autocomplete="off"
+      >
+
+      <select id="genre">
+
+        <option value="">
+          Todos os gêneros
+        </option>
+
+        <option>
+          Pop
+        </option>
+
+        <option>
+          Rap
+        </option>
+
+        <option>
+          Rock
+        </option>
+
+        <option>
+          MPB
+        </option>
+
+        <option>
+          Sertanejo
+        </option>
+
+        <option>
+          Eletrônica
+        </option>
+
+        <option>
+          Funk
+        </option>
+
+        <option>
+          Outro
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!--
+      Área pública de artistas.
+      O app.js pode continuar utilizando esse ID.
+    -->
+    <div
+      id="artistGrid"
+      class="artist-grid">
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ÁREA PARA ARTISTAS
+  ========================== -->
+  <section
+    id="artista"
+    class="public-section">
+
+    <p class="eyebrow">
+      Para artistas
+    </p>
+
+    <h2>
+      Crie sua página pública
+    </h2>
+
+    <p>
+      Seu perfil reúne biografia, música em destaque e contatos:
+      Instagram, e-mail e telefone. O painel do artista permite
+      enviar uma prévia de áudio e atualizar suas informações.
+    </p>
+
+
+    <div class="feature-grid">
+
+      <article>
+
+        <h3>
+          Perfil próprio
+        </h3>
 
         <p>
-          Uma plataforma para cadastrar artistas, divulgar músicas e organizar perfis
-          musicais com acesso separado para administradores, artistas e usuários comuns.
+          Uma página para apresentar sua identidade e seu som.
         </p>
 
-        <div
-          class="summary-strip"
-          aria-label="Resumo do banco de dados">
+      </article>
 
-          <article>
-            <strong id="artistCount">0</strong>
-            <span>artistas cadastrados</span>
-          </article>
 
-          <article>
-            <strong id="userCount">0</strong>
-            <span>usuários no banco</span>
-          </article>
+      <article>
 
-          <article>
-            <strong id="genreCount">0</strong>
-            <span>gêneros musicais</span>
-          </article>
+        <h3>
+          Preview de música
+        </h3>
 
-        </div>
-
-      </section>
-
-
-      <!-- LOGIN -->
-      <section
-        class="login-panel"
-        id="login"
-        aria-labelledby="loginTitle">
-
-        <div class="section-heading">
-
-          <div>
-            <p class="eyebrow">
-              Acesso
-            </p>
-
-            <h2 id="loginTitle">
-              Entrar no Music Link
-            </h2>
-          </div>
-
-          <div class="badge-stack">
-
-            <span
-              class="role-badge"
-              id="sessionBadge">
-              Visitante
-            </span>
-
-            <span
-              class="backend-badge"
-              id="backendBadge">
-              Banco local
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <form
-          class="login-form"
-          id="loginForm">
-
-          <label>
-            Tipo de login
-
-            <select
-              id="loginRole"
-              required>
-
-              <option value="admin">
-                Administrador
-              </option>
-
-              <option value="artista">
-                Artista
-              </option>
-
-              <option value="comum">
-                Usuário comum
-              </option>
-
-            </select>
-          </label>
-
-
-          <label>
-            E-mail
-
-            <input
-              type="email"
-              id="loginEmail"
-              placeholder="Digite o e-mail de acesso"
-              required>
-          </label>
-
-
-          <label>
-            Senha
-
-            <input
-              type="password"
-              id="loginPassword"
-              placeholder="Digite a senha"
-              required>
-          </label>
-
-
-          <button
-            class="button primary full"
-            type="submit">
-            Entrar
-          </button>
-
-
-          <button
-            class="button subtle full hidden"
-            type="button"
-            id="logoutButton">
-            Sair da conta
-          </button>
-
-
-          <p
-            class="form-message"
-            id="loginMessage"
-            role="status">
-          </p>
-
-        </form>
-
-
-        <!-- CADASTRO DE USUÁRIO -->
-        <form
-          class="signup-form"
-          id="signupForm">
-
-          <div>
-
-            <p class="eyebrow">
-              Criar conta
-            </p>
-
-            <h3>
-              Cadastro de usuário
-            </h3>
-
-          </div>
-
-
-          <label>
-            Nome completo
-
-            <input
-              type="text"
-              id="signupName"
-              placeholder="Digite seu nome."
-              required>
-          </label>
-
-
-          <label>
-            Tipo de conta
-
-            <select
-              id="signupRole"
-              required>
-
-              <option value="comum">
-                Usuário comum
-              </option>
-
-              <option value="artista">
-                Artista
-              </option>
-
-            </select>
-          </label>
-
-
-          <label>
-            E-mail
-
-            <input
-              type="email"
-              id="signupEmail"
-              placeholder="Digite seu e-mail."
-              required>
-          </label>
-
-
-          <label>
-            Senha
-
-            <input
-              type="password"
-              id="signupPassword"
-              placeholder="Use pelo menos 8 caracteres."
-              required>
-          </label>
-
-
-          <button
-            class="button subtle full"
-            type="submit">
-            Criar conta
-          </button>
-
-
-          <p
-            class="form-message"
-            id="signupMessage"
-            role="status">
-          </p>
-
-        </form>
-
-
-        <!-- CONTAS DE TESTE -->
-        <div
-          class="demo-access"
-          id="demoAccess"
-          aria-label="Contas de teste">
-
-          <p>
-            Contas de teste:
-          </p>
-
-          <button
-            type="button"
-            data-demo="admin">
-            Administrador
-          </button>
-
-          <button
-            type="button"
-            data-demo="artista">
-            Artista
-          </button>
-
-          <button
-            type="button"
-            data-demo="comum">
-            Usuário comum
-          </button>
-
-        </div>
-
-      </section>
-
-
-      <!-- CADASTRO DE ARTISTA -->
-      <section
-        class="form-panel locked"
-        id="cadastro"
-        aria-labelledby="formTitle">
-
-        <div class="section-heading">
-
-          <div>
-
-            <p class="eyebrow">
-              Banco de dados local
-            </p>
-
-            <h2 id="formTitle">
-              Cadastrar artista
-            </h2>
-
-          </div>
-
-
-          <button
-            class="button subtle hidden"
-            type="button"
-            id="cancelEditButton">
-            Cancelar edição
-          </button>
-
-        </div>
-
-
-        <p
-          class="permission-note"
-          id="permissionNote">
-
-          Faça login como administrador ou artista para cadastrar e alterar perfis.
-
+        <p>
+          Envie um trecho para as pessoas conhecerem seu trabalho.
         </p>
 
+      </article>
 
-        <form
-          class="artist-form"
-          id="artistForm">
 
-          <input
-            type="hidden"
-            id="artistId">
+      <article>
 
+        <h3>
+          Contato direto
+        </h3>
 
-          <label>
-            Nome
+        <p>
+          Facilite que fãs e contratantes encontrem você.
+        </p>
 
-            <input
-              type="text"
-              id="artistName"
-              placeholder="Ex.: Luna Alves"
-              required>
-          </label>
-
-
-          <label>
-            Gênero
-
-            <select
-              id="artistGenre"
-              required>
-
-              <option value="">
-                Selecione
-              </option>
-
-              <option>
-                Pop
-              </option>
-
-              <option>
-                Rap
-              </option>
-
-              <option>
-                Rock
-              </option>
-
-              <option>
-                MPB
-              </option>
-
-              <option>
-                Sertanejo
-              </option>
-
-              <option>
-                Eletrônica
-              </option>
-
-              <option>
-                Funk
-              </option>
-
-              <option>
-                Outro
-              </option>
-
-            </select>
-          </label>
-
-
-          <label>
-            Nome da música
-
-            <input
-              type="text"
-              id="artistSong"
-              placeholder="Ex.: Noites de Neon"
-              required>
-          </label>
-
-
-          <label>
-            Bio curta
-
-            <textarea
-              id="artistBio"
-              rows="5"
-              placeholder="Conte brevemente sobre o artista."
-              required></textarea>
-
-          </label>
-
-
-          <button
-            class="button primary full"
-            type="submit"
-            id="submitButton">
-
-            Salvar artista
-
-          </button>
-
-
-          <p
-            class="form-message"
-            id="formMessage"
-            role="status">
-          </p>
-
-        </form>
-
-      </section>
-
-    </main>
-
-  </div>
-
-
-  <!-- MODAL DE ARTISTAS -->
-  <section
-    class="artist-modal hidden"
-    id="artistModal"
-    aria-label="Janela de artistas"
-    aria-modal="true"
-    role="dialog">
-
-    <div class="modal-card">
-
-      <div class="modal-top">
-
-        <div>
-
-          <p class="eyebrow">
-            Artistas cadastrados
-          </p>
-
-          <h2>
-            Perfis Music Link
-          </h2>
-
-        </div>
-
-
-        <button
-          class="icon-button"
-          type="button"
-          id="closeGalleryButton"
-          aria-label="Fechar janela">
-
-          X
-
-        </button>
-
-      </div>
-
-
-      <label class="search-box">
-
-        Pesquisar artista
-
-        <input
-          type="search"
-          id="artistSearch"
-          placeholder="Digite nome, gênero ou música.">
-
-      </label>
-
-
-      <div class="profile-stage">
-
-        <button
-          class="arrow-button"
-          type="button"
-          id="previousArtistButton"
-          aria-label="Artista anterior">
-
-          &#8249;
-
-        </button>
-
-
-        <article
-          class="profile-card"
-          id="profileCard"
-          aria-live="polite">
-        </article>
-
-
-        <button
-          class="arrow-button"
-          type="button"
-          id="nextArtistButton"
-          aria-label="Próximo artista">
-
-          &#8250;
-
-        </button>
-
-      </div>
-
-
-      <div class="modal-actions">
-
-        <span id="profilePosition">
-          0 de 0
-        </span>
-
-        <button
-          class="button subtle"
-          type="button"
-          id="editArtistButton">
-
-          Alterar informações
-
-        </button>
-
-      </div>
+      </article>
 
     </div>
 
   </section>
 
 
-  <!-- SUPABASE -->
+  <!-- =========================
+       ACESSO / LOGIN
+  ========================== -->
+  <section
+    id="acesso"
+    class="public-section access-section">
+
+    <div>
+
+      <p class="eyebrow">
+        Acesso
+      </p>
+
+      <h2>
+        Entre ou crie uma conta
+      </h2>
+
+      <p class="muted">
+        Entre na sua conta para acessar os recursos
+        disponíveis para cada tipo de usuário.
+      </p>
+
+    </div>
+
+
+    <!--
+      IMPORTANTE:
+      Os IDs abaixo são os IDs do sistema funcional.
+      Não foram trocados por IDs novos para não quebrar o app.js.
+    -->
+    <form
+      id="loginForm"
+      class="login-form">
+
+      <label>
+        Tipo de login
+
+        <select
+          id="loginRole"
+          required>
+
+          <option value="admin">
+            Administrador
+          </option>
+
+          <option value="artista">
+            Artista
+          </option>
+
+          <option value="comum">
+            Usuário comum
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+        E-mail
+
+        <input
+          id="loginEmail"
+          type="email"
+          placeholder="Digite seu e-mail"
+          required>
+
+      </label>
+
+
+      <label>
+        Senha
+
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Digite sua senha"
+          required>
+
+      </label>
+
+
+      <button
+        class="button primary"
+        type="submit">
+
+        Entrar
+
+      </button>
+
+
+      <button
+        class="button subtle hidden"
+        type="button"
+        id="logoutButton">
+
+        Sair da conta
+
+      </button>
+
+
+      <p
+        id="loginMessage"
+        class="form-message"
+        role="status">
+      </p>
+
+    </form>
+
+  </section>
+
+
+  <!-- =========================
+       ÁREA DE CADASTRO
+  ========================== -->
+  <section
+    id="cadastro"
+    class="public-section form-panel locked"
+    aria-labelledby="formTitle">
+
+    <div class="section-heading">
+
+      <div>
+
+        <p class="eyebrow">
+          Banco de dados
+        </p>
+
+        <h2 id="formTitle">
+          Cadastrar artista
+        </h2>
+
+      </div>
+
+
+      <button
+        class="button subtle hidden"
+        type="button"
+        id="cancelEditButton">
+
+        Cancelar edição
+
+      </button>
+
+    </div>
+
+
+    <p
+      class="permission-note"
+      id="permissionNote">
+
+      Faça login como administrador ou artista
+      para cadastrar e alterar perfis.
+
+    </p>
+
+
+    <form
+      class="artist-form"
+      id="artistForm">
+
+      <!-- ID utilizado para edição -->
+      <input
+        type="hidden"
+        id="artistId">
+
+
+      <label>
+        Nome
+
+        <input
+          type="text"
+          id="artistName"
+          placeholder="Ex.: Luna Alves"
+          required>
+
+      </label>
+
+
+      <label>
+        Gênero
+
+        <select
+          id="artistGenre"
+          required>
+
+          <option value="">
+            Selecione
+          </option>
+
+          <option>
+            Pop
+          </option>
+
+          <option>
+            Rap
+          </option>
+
+          <option>
+            Rock
+          </option>
+
+          <option>
+            MPB
+          </option>
+
+          <option>
+            Sertanejo
+          </option>
+
+          <option>
+            Eletrônica
+          </option>
+
+          <option>
+            Funk
+          </option>
+
+          <option>
+            Outro
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+        Nome da música
+
+        <input
+          type="text"
+          id="artistSong"
+          placeholder="Ex.: Noites de Neon"
+          required>
+
+      </label>
+
+
+      <label>
+        Bio curta
+
+        <textarea
+          id="artistBio"
+          rows="5"
+          placeholder="Conte brevemente sobre o artista."
+          required></textarea>
+
+      </label>
+
+
+      <button
+        class="button primary"
+        type="submit"
+        id="submitButton">
+
+        Salvar artista
+
+      </button>
+
+
+      <p
+        class="form-message"
+        id="formMessage"
+        role="status">
+      </p>
+
+    </form>
+
+  </section>
+
+
+  <!-- =========================
+       CONTADORES DO BANCO
+  ========================== -->
+  <section class="public-section">
+
+    <p class="eyebrow">
+      Music Link
+    </p>
+
+    <h2>
+      Nossa comunidade
+    </h2>
+
+    <div class="summary-strip">
+
+      <article>
+
+        <strong id="artistCount">
+          0
+        </strong>
+
+        <span>
+          artistas cadastrados
+        </span>
+
+      </article>
+
+
+      <article>
+
+        <strong id="userCount">
+          0
+        </strong>
+
+        <span>
+          usuários no banco
+        </span>
+
+      </article>
+
+
+      <article>
+
+        <strong id="genreCount">
+          0
+        </strong>
+
+        <span>
+          gêneros musicais
+        </span>
+
+      </article>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- =========================
+     MODAL DE ARTISTAS
+========================== -->
+<section
+  class="artist-modal hidden"
+  id="artistModal"
+  aria-label="Janela de artistas"
+  aria-modal="true"
+  role="dialog">
+
+  <div class="modal-card">
+
+
+    <div class="modal-top">
+
+      <div>
+
+        <p class="eyebrow">
+          Artistas cadastrados
+        </p>
+
+        <h2>
+          Perfis Music Link
+        </h2>
+
+      </div>
+
+
+      <button
+        class="icon-button"
+        type="button"
+        id="closeGalleryButton"
+        aria-label="Fechar janela">
+
+        X
+
+      </button>
+
+    </div>
+
+
+    <label class="search-box">
+
+      Pesquisar artista
+
+      <input
+        type="search"
+        id="artistSearch"
+        placeholder="Digite nome, gênero ou música.">
+
+    </label>
+
+
+    <div class="profile-stage">
+
+
+      <button
+        class="arrow-button"
+        type="button"
+        id="previousArtistButton"
+        aria-label="Artista anterior">
+
+        &#8249;
+
+      </button>
+
+
+      <article
+        class="profile-card"
+        id="profileCard"
+        aria-live="polite">
+      </article>
+
+
+      <button
+        class="arrow-button"
+        type="button"
+        id="nextArtistButton"
+        aria-label="Próximo artista">
+
+        &#8250;
+
+      </button>
+
+
+    </div>
+
+
+    <div class="modal-actions">
+
+      <span id="profilePosition">
+        0 de 0
+      </span>
+
+
+      <button
+        class="button subtle"
+        type="button"
+        id="editArtistButton">
+
+        Alterar informações
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+```
+
+  </div>
+
+  <!-- =========================
+       RODAPÉ
+  ========================== -->
+
+  <footer>
+
+```
+Music Link · divulgação gratuita para artistas independentes
+```
+
+  </footer>
+
+  <!-- =========================
+       SUPABASE
+  ========================== -->
+
   <script src="supabase-config.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!-- LÓGICA DO SITE -->
   <script src="app.js"></script>
 
 </body>
+
 </html>
