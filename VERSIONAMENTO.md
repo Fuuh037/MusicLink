@@ -18,5 +18,10 @@ O primeiro commit registra o estado após a adaptação para Supabase; não repr
 
 ## MusicLink v1.3 — 2026-10-31
 
-- Removido do site o arquivo legado pp.js, que não era carregado por index.html e continha credenciais de demonstração. O site atual utiliza site.js.
+- Removido do site o arquivo legado app.js, que não era carregado por index.html e continha credenciais de demonstração. O site atual utiliza site.js.
 - O backup local v1.2 preserva a versão anterior; esta versão tem snapshot próprio em outputs/backups/MusicLink-v1.3-2026-10-31 e ZIP homônimo.
+
+## MusicLink v1.4 — 2026-10-31
+
+- README público resumido para apresentar o site e direcionar visitantes ao Music Link.
+- Snapshot local: outputs/backups/MusicLink-v1.4-2026-10-31 e ZIP homônimo.
