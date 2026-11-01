@@ -15,3 +15,8 @@ O primeiro commit registra o estado após a adaptação para Supabase; não repr
 - Snapshot anterior à alteração: `outputs/backups/MusicLink-v1.1-local-before-fix-2026-10-31` e arquivo ZIP homônimo.
 - Snapshot desta versão salvo em `outputs/backups/MusicLink-v1.2-2026-10-31` e no arquivo ZIP homônimo.
 
+
+## MusicLink v1.3 — 2026-10-31
+
+- Removido do site o arquivo legado pp.js, que não era carregado por index.html e continha credenciais de demonstração. O site atual utiliza site.js.
+- O backup local v1.2 preserva a versão anterior; esta versão tem snapshot próprio em outputs/backups/MusicLink-v1.3-2026-10-31 e ZIP homônimo.
